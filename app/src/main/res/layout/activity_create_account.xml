@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".CreateAccount">
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="311dp"
         android:layout_height="54dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,13 +22,159 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:layout_marginTop="28dp"
         android:text="-----Create your account for a new World.-----"
+        android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="20sp"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Upload your image here"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/ProfileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/RegistarBtn"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="84dp"
+        android:text="Registar"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/primarycolour"
+        app:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PASSWORD"
+        android:layout_width="330dp"
+        android:layout_height="59dp"
+
+        android:layout_marginBottom="60dp"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/RegistarBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:singleLine="true"
+            android:textColorLink="#FB0000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NAME"
+        android:layout_width="330dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="36dp"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/EMAIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name/username"
+            android:singleLine="true"
+            android:textColorLink="#FB0000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EMAIL"
+        android:layout_width="330dp"
+        android:layout_height="59dp"
+
+        android:layout_marginBottom="36dp"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/PASSWORD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:singleLine="true"
+            android:textColorLink="#FB0000"
+            tools:ignore="MissingConstraints" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ProfileImage"
+        android:layout_width="140dp"
+        android:layout_height="110dp"
+        android:src="@drawable/display_pic"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/NAME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:gravity="end"
+        android:text="Already Have An Account "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegistarBtn"
+        app:layout_constraintVertical_bias="0.446" />
+
+    <Button
+        android:id="@+id/Login"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="73dp"
+        android:layout_height="38dp"
+        android:gravity="start"
+        android:text="Login ?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/RegistarBtn"
+        app:layout_constraintVertical_bias="0.391" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/AddProfileImage"
+        android:layout_width="40dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/plus_3"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ProfileImage"
+        app:layout_constraintEnd_toEndOf="@+id/ProfileImage"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="@+id/ProfileImage" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

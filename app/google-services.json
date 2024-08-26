@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200797875909",
+    "project_id": "socialnest-f2324",
+    "storage_bucket": "socialnest-f2324.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200797875909:android:714fa2897e28db3cd18aac",
+        "android_client_info": {
+          "package_name": "com.vsp.socialnest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn0wjSNxS1INOIXQqt4BxPMFEQ6qqV4F0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

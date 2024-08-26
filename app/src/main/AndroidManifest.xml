@@ -13,6 +13,13 @@
         android:theme="@style/Theme.SocialNest"
         tools:targetApi="31">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".HomeScreen"
+            android:exported="false"
+            android:label="@string/title_activity_home_screen" />
+        <activity
             android:name=".CreateAccount"
             android:exported="false" />
         <activity
