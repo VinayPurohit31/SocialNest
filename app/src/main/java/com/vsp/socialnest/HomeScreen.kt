@@ -27,5 +27,6 @@ class HomeScreen : AppCompatActivity() {
 
        // setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.itemIconTintList = null
     }
 }

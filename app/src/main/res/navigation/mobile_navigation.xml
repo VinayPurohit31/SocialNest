@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
+    app:startDestination="@id/home">
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.vsp.socialnest.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:id="@+id/home"
+        android:name="com.vsp.socialnest.fragments.HomeFragment"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.vsp.socialnest.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/search"
+        android:name="com.vsp.socialnest.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.vsp.socialnest.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/add"
+        android:name="com.vsp.socialnest.fragments.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/pops"
+        android:name="com.vsp.socialnest.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.vsp.socialnest.fragments.ReelFragment"
+        android:label="fragment_reel"
+        tools:layout="@layout/fragment_reel" />
 </navigation>
