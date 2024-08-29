@@ -14,7 +14,7 @@
         android:name="com.vsp.socialnest.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
-    <fragment
+    <dialog
         android:id="@+id/add"
         android:name="com.vsp.socialnest.fragments.AddFragment"
         android:label="fragment_add"
