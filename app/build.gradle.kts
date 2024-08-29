@@ -67,5 +67,7 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.androidx.vectordrawable) // Or a newer version
 
+    implementation(libs.picasso)
+
 
 }

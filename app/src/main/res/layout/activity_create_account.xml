@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="84dp"
-        android:text="Registar"
+        android:text="Submit"
         android:textColor="@color/white"
         app:backgroundTint="@color/primarycolour"
         app:elevation="8dp"

@@ -21,12 +21,12 @@
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/pops"
-        android:name="com.vsp.socialnest.fragments.ProfileFragment"
-        android:label="fragment_profile"
+        android:name="com.vsp.socialnest.fragments.ReelFragment"
+        android:label="fragment_reel"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/profile"
-        android:name="com.vsp.socialnest.fragments.ReelFragment"
-        android:label="fragment_reel"
-        tools:layout="@layout/fragment_reel" />
+        android:name="com.vsp.socialnest.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
