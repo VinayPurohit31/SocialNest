@@ -14,7 +14,9 @@ import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.vsp.socialnest.CreateAccount
+import com.vsp.socialnest.HomeScreen
 import com.vsp.socialnest.Models.User
+import com.vsp.socialnest.Post.PopsActivity
 import com.vsp.socialnest.adapters.ViewPagerAdapters
 import com.vsp.socialnest.databinding.FragmentProfileBinding
 import com.vsp.socialnest.utils.USER_NODE
@@ -33,6 +35,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         binding.editProfile.setOnClickListener(){
             val intent=Intent(activity, CreateAccount::class.java)
@@ -45,7 +48,9 @@ class ProfileFragment : Fragment() {
         viewPagerAdapter.addFragment(MyPops(), "My Pops")
         binding.viewPager.adapter = viewPagerAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
-
+        binding.backButton.setOnClickListener{
+            startActivity(Intent(requireActivity(), HomeScreen::class.java))
+        }
         return binding.root
     }
 
