@@ -28,7 +28,7 @@ class AddFragment : BottomSheetDialogFragment() {
        binding= FragmentAddBinding.inflate(inflater,container,false)
         binding.addMemory.setOnClickListener{
             activity?.startActivity(Intent(requireActivity(),MemoriesActivity::class.java))
-            activity?.finish()
+//            activity?.finish()
         }
         binding.addPops.setOnClickListener{
             activity?.startActivity(Intent(requireActivity(),PopsActivity::class.java))

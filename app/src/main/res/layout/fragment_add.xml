@@ -19,7 +19,7 @@
             android:id="@+id/imageView5"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/add_photo_alternate_24px" />
+            android:src="@drawable/image" />
 
         <TextView
 
@@ -45,7 +45,7 @@
             android:id="@+id/imageView6"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/theater_comedy_24px" />
+            android:src="@drawable/video11" />
 
         <TextView
 

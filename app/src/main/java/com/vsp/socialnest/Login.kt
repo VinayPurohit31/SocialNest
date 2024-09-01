@@ -24,7 +24,7 @@ class Login : AppCompatActivity() {
             val email = binding.EMAIL.editText?.text.toString()
             val password = binding.PASSWORD.editText?.text.toString()
 
-            if (email.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() ||password.isEmpty()) {
                 Toast.makeText(this@Login, "Please fill all the details", Toast.LENGTH_SHORT).show()
             } else {
                 val user = User(email, password)
@@ -44,6 +44,11 @@ class Login : AppCompatActivity() {
             }
         }
 
+        // Set click listener for Create Account button
+        binding.CreateAccount.setOnClickListener {
+            startActivity(Intent(this@Login, CreateAccount::class.java))
+        }
+
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -51,8 +56,6 @@ class Login : AppCompatActivity() {
             insets
         }
     }
-
-
 
     private fun enableEdgeToEdge() {
         // Add your edge-to-edge handling logic here

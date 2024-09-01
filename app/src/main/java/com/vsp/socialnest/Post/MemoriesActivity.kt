@@ -29,16 +29,14 @@ class MemoriesActivity : AppCompatActivity() {
     var imageUrl: String? = null
     private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {
-            uploadImage(it, MEMORIES_FOLDER) {
-                url ->
+            uploadImage(it, MEMORIES_FOLDER) { url ->
                 if (url != null) {
                     binding.MemoriesImage.setImageURI(uri)
-                    imageUrl=url
+                    imageUrl = url
                 }
             }
         }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +46,14 @@ class MemoriesActivity : AppCompatActivity() {
         setSupportActionBar(binding.materialToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        // Change navigation icon color
         val drawable = binding.materialToolbar.navigationIcon
-        drawable?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
-        binding.materialToolbar.navigationIcon = drawable
+        if (drawable != null) {
+            drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP)
+            binding.materialToolbar.navigationIcon = drawable
+        }
+
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         binding.materialToolbar.setNavigationOnClickListener {
@@ -65,15 +68,23 @@ class MemoriesActivity : AppCompatActivity() {
         binding.MemoriesImage.setOnClickListener {
             launcher.launch("image/*")
         }
+        binding.CancelBtn.setOnClickListener {
+            startActivity(Intent(this@MemoriesActivity, HomeScreen::class.java))
+            finish()
+        }
         binding.PostBtn.setOnClickListener {
-            val post:Post= Post(imageUrl!!,binding.caption.editText?.text.toString())
+            if (imageUrl != null) {
+                val post: Post = Post(imageUrl!!, binding.caption.editText?.text.toString())
 
-            Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
-                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
-                    startActivity(Intent(this@MemoriesActivity,HomeScreen::class.java))
-                    finish()
+                Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
+                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid)
+                        .document().set(post).addOnSuccessListener {
+                            startActivity(Intent(this@MemoriesActivity, HomeScreen::class.java))
+                            finish()
+                        }
                 }
-
+            } else {
+                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             }
         }
     }
