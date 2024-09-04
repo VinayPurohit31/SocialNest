@@ -1,14 +1,16 @@
 package com.vsp.socialnest.adapters
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.squareup.picasso.Picasso
+import com.vsp.socialnest.Models.Pops
 import com.vsp.socialnest.Models.Post
 import com.vsp.socialnest.databinding.MyMemoriesRvDesignBinding
 
-class MyPostRvAdapter(var context: Context, var postList:ArrayList<Post>):RecyclerView.Adapter<MyPostRvAdapter.ViewHolder>() {
+class MyPopsRvAdapter(var context: Context, var popsList:ArrayList<Pops>):RecyclerView.Adapter<MyPopsRvAdapter.ViewHolder>() {
     inner class ViewHolder(var binding: MyMemoriesRvDesignBinding):
         RecyclerView.ViewHolder(binding.root)
 
@@ -18,12 +20,14 @@ class MyPostRvAdapter(var context: Context, var postList:ArrayList<Post>):Recycl
     }
 
     override fun getItemCount(): Int {
-        return postList.size
+        return popsList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.postImage
-        Picasso.get().load(postList.get(position).postUrl).into(holder.binding.postImage)
+        Glide.with(context)
+            .load(popsList.get(position).popsUrl)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.binding.postImage)
     }
 
 }

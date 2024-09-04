@@ -30,6 +30,7 @@ class MyMemories : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         binding=FragmentMyMemoriesBinding.inflate(inflater,container,false)
         val postList = ArrayList<Post>() // Initialize postList here
         val adapter = MyPostRvAdapter(requireContext(), postList) // Pass postList to adapter

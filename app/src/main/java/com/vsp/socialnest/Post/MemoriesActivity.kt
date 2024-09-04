@@ -57,6 +57,7 @@ class MemoriesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         binding.materialToolbar.setNavigationOnClickListener {
+            startActivity(Intent(this@MemoriesActivity, HomeScreen::class.java))
             finish()
         }
 
