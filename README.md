@@ -4,7 +4,7 @@
 
 ## Features
 
-### 1. Pops (Reels)
+### 1. Pops (Reels,Shorts)
 - **Create and Share**: Capture and share short videos that can be viewed by your followers.
 - **Explore Pops**: Discover trending Pops from users worldwide.
 - **Engagement**: Like, comment, and share Pops to interact with the community.
