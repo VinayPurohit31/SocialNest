@@ -2,6 +2,7 @@ package com.vsp.socialnest.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -27,6 +28,7 @@ class PopsAdapter(var context: Context, var popsList: ArrayList<Pops>) : Recycle
         holder.binding.caption.setText(popsList.get(position).caption)
         holder.binding.videoView.setVideoPath(popsList.get(position).popsUrl)
         holder.binding.videoView.setOnPreparedListener{
+            holder.binding.progressBar.visibility=View.GONE
             holder.binding.videoView.start()
         }
     }

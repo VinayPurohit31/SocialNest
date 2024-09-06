@@ -25,10 +25,10 @@
         android:id="@+id/ProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="76dp"
         android:src="@drawable/display_pic"
-        app:civ_border_color="#FF000000"
+        app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,12 +40,23 @@
         android:layout_marginStart="16dp"
         android:maxLines="2"
         android:text="This is my temp data for video"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/ProfileImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ProfileImage"
         app:layout_constraintTop_toTopOf="@+id/ProfileImage" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="@+id/videoView"
+        app:layout_constraintStart_toStartOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="@+id/videoView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
