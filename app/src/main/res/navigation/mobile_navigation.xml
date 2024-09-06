@@ -21,8 +21,8 @@
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/pops"
-        android:name="com.vsp.socialnest.fragments.ReelFragment"
-        android:label="fragment_reel"
+        android:name="com.vsp.socialnest.fragments.PopsFragment"
+        android:label="fragment_pops"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/profile"

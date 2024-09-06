@@ -14,10 +14,13 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.vsp.socialnest.HomeScreen
 import com.vsp.socialnest.Models.Pops
+import com.vsp.socialnest.Models.User
 import com.vsp.socialnest.R
+import com.google.firebase.firestore.toObject
 import com.vsp.socialnest.databinding.ActivityPopsBinding
 import com.vsp.socialnest.utils.POPS
 import com.vsp.socialnest.utils.POPS_FOLDER
+import com.vsp.socialnest.utils.USER_NODE
 import com.vsp.socialnest.utils.uploadVideo
 
 class PopsActivity : AppCompatActivity() {
@@ -62,18 +65,20 @@ class PopsActivity : AppCompatActivity() {
             finish()
         }
         binding.PostBtn.setOnClickListener {
-            if (videoUrl != null) {
-                val pops: Pops = Pops(videoUrl!!, binding.caption.editText?.text.toString())
+            Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                var user: User = it.toObject<User>()!!
+                if (videoUrl != null) {
+                    val pops: Pops = Pops(videoUrl!!, binding.caption.editText?.text.toString(),user.image!!)
 
-                Firebase.firestore.collection(POPS).document().set(pops).addOnSuccessListener {
-                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid+POPS)
-                        .document().set(pops).addOnSuccessListener {
-                            startActivity(Intent(this@PopsActivity, HomeScreen::class.java))
-                            finish()
-                        }
-                }
-            } else {
-                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+                    Firebase.firestore.collection(POPS).document().set(pops).addOnSuccessListener {
+                        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid+POPS)
+                            .document().set(pops).addOnSuccessListener {
+                                startActivity(Intent(this@PopsActivity, HomeScreen::class.java))
+                                finish()
+                            }
+                    }
+            }
+
             }
         }
 
