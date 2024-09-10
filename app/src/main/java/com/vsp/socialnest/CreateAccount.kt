@@ -2,6 +2,7 @@ package com.vsp.socialnest
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -97,31 +98,54 @@ class CreateAccount : AppCompatActivity() {
         val email = binding.EMAIL.editText?.text.toString()
         val password = binding.PASSWORD.editText?.text.toString()
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this@CreateAccount, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+        if (name.isEmpty()) {
+            binding.NAME.error = "Please enter a name"
+            return
         } else {
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { result ->
-                    if (result.isSuccessful) {
-                        user.name = name
-                        user.email = email
-                        user.password = password
-
-                        Firebase.firestore.collection(USER_NODE)
-                            .document(Firebase.auth.currentUser!!.uid)
-                            .set(user)
-                            .addOnSuccessListener {
-                                Toast.makeText(this@CreateAccount, "Account created successfully", Toast.LENGTH_SHORT).show()
-                                navigateToHomeScreen()
-                            }
-                            .addOnFailureListener {
-                                Toast.makeText(this@CreateAccount, "Account creation failed", Toast.LENGTH_SHORT).show()
-                            }
-                    } else {
-                        Toast.makeText(this@CreateAccount, "Account creation failed", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            binding.NAME.error = null
         }
+
+        if (email.isEmpty()) {
+            binding.EMAIL.error = "Please enter an email"
+            return
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.EMAIL.error = "Please enter a valid email"
+            return
+        } else {
+            binding.EMAIL.error = null
+        }
+
+        if (password.isEmpty()) {
+            binding.PASSWORD.error = "Please enter a password"
+            return
+        } else if (password.length < 6) {
+            binding.PASSWORD.error = "Password must be at least 6 characters"
+            return
+        } else {
+            binding.PASSWORD.error = null
+        }
+
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { result ->
+                if (result.isSuccessful) {
+                    user.name = name
+                    user.email = email
+                    user.password = password
+
+                    Firebase.firestore.collection(USER_NODE)
+                        .document(Firebase.auth.currentUser!!.uid)
+                        .set(user)
+                        .addOnSuccessListener {
+                            Toast.makeText(this@CreateAccount, "Account created successfully", Toast.LENGTH_SHORT).show()
+                            navigateToHomeScreen()
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this@CreateAccount, "Account creation failed", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this@CreateAccount, "Account creation failed", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun navigateToHomeScreen() {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
-import com.squareup.picasso.R
+
 import com.vsp.socialnest.Models.Pops
 import com.vsp.socialnest.databinding.PopsDgBinding
 
@@ -28,6 +28,8 @@ class PopsAdapter(var context: Context, var popsList: ArrayList<Pops>) : Recycle
         holder.binding.caption.setText(popsList.get(position).caption)
         holder.binding.videoView.setVideoPath(popsList.get(position).popsUrl)
         holder.binding.videoView.setOnPreparedListener{
+            mediaPlayer ->
+            mediaPlayer.isLooping= true
             holder.binding.progressBar.visibility=View.GONE
             holder.binding.videoView.start()
         }
