@@ -13,12 +13,15 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.toObject
 import com.vsp.socialnest.HomeScreen
 import com.vsp.socialnest.Models.Post
+import com.vsp.socialnest.Models.User
 import com.vsp.socialnest.R
 import com.vsp.socialnest.databinding.ActivityMemoryBinding
 import com.vsp.socialnest.utils.MEMORIES_FOLDER
 import com.vsp.socialnest.utils.POST
+import com.vsp.socialnest.utils.USER_NODE
 import com.vsp.socialnest.utils.USER_PROFILE_FOLDER
 import com.vsp.socialnest.utils.uploadImage
 
@@ -75,14 +78,22 @@ class MemoriesActivity : AppCompatActivity() {
         }
         binding.PostBtn.setOnClickListener {
             if (imageUrl != null) {
-                val post: Post = Post(imageUrl!!, binding.caption.editText?.text.toString())
+                Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                    val user = it.toObject<User>()!!
+                    val post = Post( // Declare post outside the lambda
+                        postUrl = imageUrl!!,
+                        caption = binding.caption.editText?.text.toString(),
+                        uid = Firebase.auth.currentUser!!.uid,
+                        time = System.currentTimeMillis().toString()
+                    )
 
-                Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
-                    Firebase.firestore.collection(Firebase.auth.currentUser!!.uid)
-                        .document().set(post).addOnSuccessListener {
-                            startActivity(Intent(this@MemoriesActivity, HomeScreen::class.java))
-                            finish()
-                        }
+                    Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
+                        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid)
+                            .document().set(post).addOnSuccessListener {
+                                startActivity(Intent(this@MemoriesActivity, HomeScreen::class.java))
+                                finish()
+                            }
+                    }
                 }
             } else {
                 Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
