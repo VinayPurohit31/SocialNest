@@ -60,6 +60,7 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation(libs.firebase.bom)
 
+    implementation(libs.timeago)
 
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
