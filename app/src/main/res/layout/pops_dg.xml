@@ -4,29 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0.1dp"
-    android:paddingBottom="?attr/actionBarSize"
     android:fitsSystemWindows="true"
-    >
+    android:padding="8dp">
 
+    <!-- Video View -->
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Profile Image -->
+
+    <!-- Caption Text -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="64dp"
         android:src="@drawable/display_pic"
         app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
@@ -38,25 +38,71 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
         android:maxLines="2"
         android:text="This is my temp data for video"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/ProfileImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ProfileImage"
         app:layout_constraintTop_toTopOf="@+id/ProfileImage" />
 
+    <!-- Progress Bar (Centered) -->
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:progressTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/videoView"
-        app:layout_constraintEnd_toEndOf="@+id/videoView"
-        app:layout_constraintStart_toStartOf="@+id/videoView"
-        app:layout_constraintTop_toTopOf="@+id/videoView" />
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Like Button -->
+
+    <!-- Share Button -->
+
+    <!-- Save Button -->
+    <ImageButton
+        android:id="@+id/likeButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="488dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/transparent"
+        android:src="@drawable/favorite_24px"
+        app:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/shareButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/share_24px"
+        android:background="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:tint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/likeButton"
+        app:layout_constraintTop_toBottomOf="@+id/likeButton" />
+
+    <ImageButton
+        android:id="@+id/saveButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/transparent"
+        android:src="@drawable/download_24px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shareButton"
+        app:layout_constraintTop_toBottomOf="@+id/shareButton"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

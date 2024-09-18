@@ -26,6 +26,8 @@ roundedimageview = "2.3.0"
 timeago = "4.0.3"
 vectordrawable = "1.2.0"
 legacySupportV4 = "1.0.0"
+coordinatorlayout = "1.2.0"
+core = "1.13.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +55,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview" }
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 timeago = { module = "com.github.marlonlom:timeago", version.ref = "timeago" }
+androidx-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
+androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

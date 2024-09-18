@@ -1,6 +1,7 @@
 package com.vsp.socialnest.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +33,7 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>):RecyclerV
         try {
             Firebase.firestore.collection(USER_NODE).document(postList.get(position).uid).get().addOnSuccessListener {
                 var user=it.toObject<User>()!!
-                Glide.with(context).load(user!!.image).placeholder(R.drawable.user).into(holder.binding.userPic)
+               Glide.with(context).load(user!!.image).placeholder(R.drawable.user).into(holder.binding.userPic)
                 holder.binding.name.text=user.name
             }
         }
@@ -46,7 +47,13 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>):RecyclerV
             holder.binding.time.text=text
         }
         catch (e:Exception){
-            holder.binding.time.text=""
+            holder.binding.time.text="null"
+        }
+        holder.binding.share.setOnClickListener{
+            var i=Intent(Intent.ACTION_SEND)
+            i.setType("text/plain")
+            i.putExtra(Intent.EXTRA_TEXT,postList.get(position).postUrl)
+            context.startActivity(i)
         }
 
         holder.binding.like.setOnClickListener{
