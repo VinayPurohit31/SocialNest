@@ -13,7 +13,6 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="25dp"
         app:cardElevation="5dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,18 +21,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|end"
             android:orientation="horizontal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/search_24px"
-                app:tint="@color/primarycolour" />
-
             <EditText
+                android:id="@+id/searchEt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,6 +35,13 @@
                 android:hint="Search..."
                 android:paddingStart="8dp"
                 android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search_24px"
+                app:tint="@color/primarycolour" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

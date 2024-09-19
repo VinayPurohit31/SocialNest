@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Profile Image -->
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ProfileImage"
             android:layout_width="64dp"
@@ -29,7 +29,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Name Text -->
+
         <TextView
             android:id="@+id/Name"
             android:layout_width="0dp"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toEndOf="@id/ProfileImage"
             app:layout_constraintEnd_toStartOf="@id/FollowBtn" />
 
-        <!-- Follow Button -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/FollowBtn"
             android:layout_width="wrap_content"

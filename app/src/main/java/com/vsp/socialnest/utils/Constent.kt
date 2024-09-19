@@ -6,4 +6,5 @@ const val MEMORIES_FOLDER="MemoriesImages"
 const val POPS_FOLDER="PopsVideo"
 const val POST="Post"
 const val POPS="Pops"
+const val FOLLOW="Follow"
 
