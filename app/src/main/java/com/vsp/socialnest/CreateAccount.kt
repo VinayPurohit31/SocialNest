@@ -45,6 +45,8 @@ class CreateAccount : AppCompatActivity() {
         setContentView(binding.root)
         user = User()
 
+        binding.ProfileImage.setImageResource(R.drawable.display_pic)
+
         if (intent.hasExtra("MODE") && intent.getIntExtra("MODE", -1) == 1) {
             setupProfileForUpdate()
         }

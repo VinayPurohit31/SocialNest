@@ -4,6 +4,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="login_title">Log into your new World.</string>
+    <string name="login_button">Login</string>
+    <string name="create_new">Create a new</string>
+    <string name="account">Account ?</string>
+
+    <!-- Added missing string resources -->
+    <string name="app_logo">App Logo Description</string>
+    <string name="email_hint">Email/Username</string>
+    <string name="password_hint">Password</string>
+    <string name="app_icon">App Icon Description</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

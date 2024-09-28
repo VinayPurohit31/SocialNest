@@ -1,9 +1,13 @@
 package com.vsp.socialnest.adapters
 
+import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.marlonlom.utilities.timeago.TimeAgo
@@ -39,6 +43,21 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>):RecyclerV
         }
         catch (e:Exception){}
 
+        holder.binding.save.setOnClickListener {
+            val imageUrl = postList[position].postUrl
+            val request = DownloadManager.Request(Uri.parse(imageUrl))
+                .setTitle("Downloading Image")
+                .setDescription("Downloading image from post")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                .setAllowedOverMetered(true)
+                .setAllowedOverRoaming(true)
+                .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, "${System.currentTimeMillis()}.jpg")
+
+            val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            downloadManager.enqueue(request)
+
+            Toast.makeText(context, "Downloading image...", Toast.LENGTH_SHORT).show()
+        }
 
         Glide.with(context).load(postList.get(position).postUrl).placeholder(R.drawable.loader).into(holder.binding.postImage)
         holder.binding.caption.text=postList.get(position).caption

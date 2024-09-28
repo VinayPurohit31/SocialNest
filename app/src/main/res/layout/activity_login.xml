@@ -9,21 +9,23 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="311dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:contentDescription="@string/app_logo"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
+        app:layout_constraintVertical_bias="0.863"
         app:srcCompat="@drawable/name_logo3" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="396dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="-------------  Log into your new World. -------------"
+        android:text="@string/login_title"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="20sp"
@@ -47,18 +49,18 @@
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name/username"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
             android:singleLine="true"
             android:textColorLink="#FB0000" />
-
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PASSWORD"
         android:layout_width="330dp"
         android:layout_height="59dp"
-
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="76dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/Login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,18 +71,18 @@
             android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
             android:singleLine="true"
             android:textColorLink="#FB0000" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/Login"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Login"
+        android:text="@string/login_button"
         android:textColor="@color/white"
         app:backgroundTint="@color/primarycolour"
         app:elevation="8dp"
@@ -97,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:gravity="end"
-        android:text="Create a new"
+        android:text="@string/create_new"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Login"
@@ -109,7 +111,7 @@
         android:layout_width="89dp"
         android:layout_height="37dp"
         android:gravity="start"
-        android:text="Account ?"
+        android:text="@string/account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -119,13 +121,14 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="156dp"
-        android:layout_height="122dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/app_icon"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.435"
         app:srcCompat="@drawable/only_logo_no_bg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
