@@ -7,19 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".Post.MemoriesActivity">
 
+    <!-- Material Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="@color/primarycolour"
         app:navigationIcon="@drawable/arrow_back_24px"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
+    <!-- Title TextView -->
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -29,38 +29,36 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/materialToolbar"
         app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
-        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="@+id/materialToolbar"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar" />
 
+    <!-- Rounded ImageView -->
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/MemoriesImage"
-        android:layout_width="398dp"
-        android:layout_height="380dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
         android:src="@drawable/image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        app:riv_border_color="@color/primarycolour"
-        app:riv_border_width="2dip"
-        app:riv_corner_radius="20dip"
-        app:riv_mutate_background="true"
-        app:riv_oval="false" />
+        app:layout_constraintDimensionRatio="H,1:1"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+    app:riv_border_color="@color/primarycolour"
+    app:riv_border_width="2dp"
+    app:riv_corner_radius="20dp"
+    app:riv_mutate_background="true" />
 
+    <!-- Caption Input Field -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/caption"
-        android:layout_width="330dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="48dp"
-        app:errorEnabled="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:boxStrokeColor="@color/primarycolour"
-        app:layout_constraintEnd_toEndOf="@+id/MemoriesImage"
-        app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toStartOf="@+id/MemoriesImage"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MemoriesImage">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -72,16 +70,14 @@
             android:textColorLink="#FB0000" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Share to Memories LinearLayout -->
     <LinearLayout
-
         android:id="@+id/addMemory"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.736"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caption">
 
@@ -92,11 +88,9 @@
             android:src="@drawable/add_photo_alternate_24px" />
 
         <TextView
-
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:gravity="center_vertical"
             android:text="Share to memories"
             android:textColor="@color/primarycolour"
@@ -104,42 +98,33 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Info Text -->
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:paddingTop="20dp"
-        android:paddingRight="20dp"
-        android:text="Your memory may be appear in Post and can be seen by other"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/addMemory"
+        android:layout_marginTop="16dp"
+        android:text="Your memory may appear in Post and can be seen by others"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMemory" />
 
+    <!-- Cancel and Post Buttons -->
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="265dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/CancelBtn"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="179dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="84dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/white"
             android:text="Cancel"
             android:textColor="@color/black"
@@ -149,16 +134,9 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/PostBtn"
-            android:layout_width="179dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="84dp"
+            android:layout_weight="1"
             android:text="Post"
             android:textColor="@color/white"
             app:backgroundTint="@color/primarycolour"
@@ -166,6 +144,5 @@
             app:strokeColor="@color/black"
             app:strokeWidth="2dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
